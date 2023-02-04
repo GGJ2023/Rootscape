@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction = Vector2.down;
 
     private bool canSplit = true;
+    
+    private bool alive = true;
 
     private void Awake()
     {
@@ -42,6 +44,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (alive)
+        {
+            handleInput();
+        }
+    }
+
+    private void handleInput()
+    {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -49,14 +59,15 @@ public class PlayerController : MonoBehaviour
         float rotationAmount = horizontal * rotationSpeed * Time.deltaTime;
         Quaternion rotation =
             Quaternion.Euler(Vector3.forward * -rotationAmount);
-        RotateDirection (rotation);
+        RotateDirection(rotation);
 
         // Calculate how much to accelerate this frame
         ModifySpeed(vertical * accel * Time.deltaTime);
 
         // Change the position based on the direction (normalized) and speed
         Vector2 move = direction * speed * Time.deltaTime;
-        transform.position = transform.position + (Vector3) move;
+        transform.position = transform.position + (Vector3)move;
+
 
         // Debug for split
         if (Input.GetKeyDown(KeyCode.Space))
@@ -64,7 +75,7 @@ public class PlayerController : MonoBehaviour
             Split();
         }
     }
-
+    
     public void SetSpeed(float newSpeed)
     {
         speed = newSpeed;
@@ -128,6 +139,12 @@ public class PlayerController : MonoBehaviour
         newPC.SetSpeed (speed);
 
         // Don't allow the new root to split
-        newPC.SetCanSplit(false);
+        //newPC.SetCanSplit(false);
+    }
+
+    public void KillRoot()
+    {
+        alive = false;
+        canSplit = false;
     }
 }
