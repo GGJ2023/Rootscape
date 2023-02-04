@@ -6,7 +6,9 @@ public class ScrollingBackground : MonoBehaviour
     public float scrollSpeed = 2f;
     
     private float spriteHeight;
+    private float spriteWidth;
     private float screenHeight;
+    private float screenWidth;
     private Transform bg1;
     private Transform bg2;
     private Vector2 startPosition1;
@@ -22,7 +24,9 @@ public class ScrollingBackground : MonoBehaviour
         mainCam = Camera.main;
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteHeight = spriteRenderer.bounds.size.y;
+        spriteWidth = spriteRenderer.bounds.size.x;
         screenHeight = Camera.main.orthographicSize * 2;
+        screenWidth = Camera.main.orthographicSize * 2 * Camera.main.aspect;
         bg1 = transform.GetChild(0);
         bg2 = transform.GetChild(1);
         startPosition1 = bg1.position;
@@ -38,6 +42,8 @@ public class ScrollingBackground : MonoBehaviour
     {
         cameraTransform.Translate(new Vector3(0, -scrollSpeed * Time.deltaTime, 0));
         //mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, mainCam.orthographicSize + 1, Time.deltaTime * scrollSpeed);
+        screenHeight = Camera.main.orthographicSize * 2;
+        screenWidth = Camera.main.orthographicSize * 2 * Camera.main.aspect;
 
         if (bg1.position.y >= cameraTransform.position.y + spriteHeight - screenHeight)
         {
