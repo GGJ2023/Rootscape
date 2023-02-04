@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Range(10.0f, 90.0f)] private float maxSplitAngle = 90.0f;
 
     private Vector2 direction = Vector2.down;
+    private bool canSplit = true;
 
     private void Awake()
     {
@@ -57,14 +58,46 @@ public class PlayerController : MonoBehaviour
         speed += delta;
     }
 
+    public void SetDirection(Vector2 newDir)
+    {
+        direction = newDir;
+    }
+
     public void RotateDirection(Quaternion rot)
     {
         direction = rot * direction;
     }
 
+    public void SetCanSplit(bool val)
+    {
+        canSplit = val;
+    }
+
     public void Split()
     {
+        // Don't split if you can't
+        if (!canSplit)
+        {
+            return;
+        }
+        
+        // Get a random rotation angle between the bounds
+        float rotationAmount = Random.Range(minSplitAngle, maxSplitAngle);
+        Quaternion rotation = Quaternion.Euler(Vector3.forward * rotationAmount);
 
+        // Instatiate the new root
+        GameObject newRoot = Instantiate(rootPrefab);
+        newRoot.transform.position = transform.position;
+        newRoot.transform.rotation = transform.rotation;
 
+        // Set the direction properly for the new root
+        PlayerController newPC = newRoot.GetComponent<PlayerController>();
+        newPC.SetDirection(rotation * direction);
+
+        // Set the speed to be equal
+        newPC.SetSpeed(speed);
+
+        // Don't allow the new root to split
+        newPC.SetCanSplit(false);
     }
 }
