@@ -39,12 +39,12 @@ public class ScrollingBackground : MonoBehaviour
         cameraTransform.Translate(new Vector3(0, -scrollSpeed * Time.deltaTime, 0));
         //mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, mainCam.orthographicSize + 1, Time.deltaTime * scrollSpeed);
 
-        if (bg1.position.y >= cameraTransform.position.y + spriteHeight)
+        if (bg1.position.y >= cameraTransform.position.y + spriteHeight - screenHeight)
         {
             bg1.position = new Vector2(bg2.position.x, bg2.position.y - spriteHeight);
         }
 
-        if (bg2.position.y >= cameraTransform.position.y + spriteHeight)
+        if (bg2.position.y >= cameraTransform.position.y + spriteHeight - screenHeight)
         {
             bg2.position = new Vector2(bg1.position.x, bg1.position.y - spriteHeight);
         }
