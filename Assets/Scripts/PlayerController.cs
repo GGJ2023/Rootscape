@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 direction = Vector2.down;
     private bool canSplit = true;
+    private bool alive = true;
 
     private void Awake()
     {
@@ -24,6 +25,14 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update()
+    {
+        if (alive)
+        {
+            handleInput();
+        }
+    }
+
+    private void handleInput()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -47,7 +56,7 @@ public class PlayerController : MonoBehaviour
             Split();
         }
     }
-
+    
     public void SetSpeed(float newSpeed)
     {
         speed = newSpeed;
@@ -98,6 +107,12 @@ public class PlayerController : MonoBehaviour
         newPC.SetSpeed(speed);
 
         // Don't allow the new root to split
-        newPC.SetCanSplit(false);
+        //newPC.SetCanSplit(false);
+    }
+
+    public void KillRoot()
+    {
+        alive = false;
+        canSplit = false;
     }
 }
