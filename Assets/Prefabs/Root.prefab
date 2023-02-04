@@ -52,8 +52,10 @@ MonoBehaviour:
   rotationSpeed: 93
   accel: 1.35
   rootPrefab: {fileID: 1009652298534835709}
-  minSplitAngle: 30
-  maxSplitAngle: 80
+  minSplitAngleLeft: 30
+  maxSplitAngleLeft: 90
+  maxSplitAngleRight: -90
+  minSplitAngleRight: -30
 --- !u!212 &1009652298534835706
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -147,7 +149,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -20
   m_Time: 4.54
   m_Parameters:
     serializedVersion: 3
@@ -157,7 +159,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.1071434
+        value: 0.037700653
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -166,7 +168,7 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 1
+        value: 0.2499981
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -178,8 +180,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9811321, g: 0.77774835, b: 0.49426842, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.4716981, g: 0.39425406, b: 0.28702384, a: 1}
+      key1: {r: 0.8301887, g: 0.76036096, b: 0.55998576, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
