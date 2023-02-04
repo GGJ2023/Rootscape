@@ -51,7 +51,7 @@ MonoBehaviour:
   accel: 1.35
   rootPrefab: {fileID: 1009652298534835709}
   minSplitAngle: 30
-  maxSplitAngle: 90
+  maxSplitAngle: 80
 --- !u!212 &1009652298534835706
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -403,10 +403,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1009652298534835708, guid: cfc233486b72e424199034194ff99d98, type: 3}
-      propertyPath: maxSplitAngle
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 1009652298534835709, guid: cfc233486b72e424199034194ff99d98, type: 3}
       propertyPath: m_Name
       value: Root
