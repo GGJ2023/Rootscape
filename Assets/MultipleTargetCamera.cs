@@ -29,7 +29,7 @@ public class MultipleTargetCamera : MonoBehaviour
         if (objectsWithTag.Length <= 0)
         {
             objectsWithTag = GameObject.FindGameObjectsWithTag("Dead");
-            Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, Color.white, Time.deltaTime);
+            Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, new Color(0.83f, 0.66f, 0.40f), Time.deltaTime * 0.5f);
         }
 
 
