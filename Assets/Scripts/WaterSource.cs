@@ -6,7 +6,7 @@ using UnityEngine;
 public class WaterSource : MonoBehaviour
 {
     [SerializeField]
-    private float deathTimer = 2.0f;
+    private float deathTimer = 0.5f;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {

@@ -303,9 +303,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: []
   offset: {x: 0, y: 0, z: -10}
-  maxZoom: 100
-  minZoom: 8
-  ZoomLimiter: 100
+  maxZoom: 10000
+  minZoom: 20
+  ZoomLimiter: 10000
   smoothTime: 0.5
 --- !u!82 &519420034
 AudioSource:

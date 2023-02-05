@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -25,6 +26,11 @@ public class MultipleTargetCamera : MonoBehaviour
     private void LateUpdate()
     {
         objectsWithTag = GameObject.FindGameObjectsWithTag("Root");
+        if (objectsWithTag.Length <= 0)
+        {
+            objectsWithTag = GameObject.FindGameObjectsWithTag("Dead");
+            Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, Color.white, Time.deltaTime);
+        }
 
 
         if (targets.Count != objectsWithTag.Length)
