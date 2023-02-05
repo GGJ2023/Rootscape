@@ -13,6 +13,11 @@ public enum PlantType
 
 public class tree : MonoBehaviour
 {
+    float min(float a, float b)
+    {
+        return a > b ? b : a;
+    }
+
     float clamp(float f, float a, float b)
     {
         if(a > f) return a;
@@ -79,11 +84,10 @@ public class tree : MonoBehaviour
         if(height > maxHeight)
             return;
 
-        height += 0.001f;
+        height += 0.0005f;
+
         if(multiplier > 0.05f)
             multiplier = clamp(multiplier - 0.00005f, 0.0f, 2.0f);
-
-        //Debug.Log(direction);
 
         Vector3 move = height * direction * multiplier;
 
