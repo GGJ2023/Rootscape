@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5124523397734726188}
   m_Layer: 3
   m_Name: Root
-  m_TagString: Player
+  m_TagString: Root
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -20
-  m_Time: 4.54
+  m_Time: 100
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
