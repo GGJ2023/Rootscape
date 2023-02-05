@@ -161,11 +161,12 @@ public class PlayerController : MonoBehaviour
         newPC.SetSpeed (speed);
 
         // Don't allow the new root to split
-        //newPC.SetCanSplit(false);
+        newPC.SetCanSplit(false);
     }
 
     public void KillRoot()
     {
+        gameObject.tag = "Dead";
         alive = false;
         canSplit = false;
     }

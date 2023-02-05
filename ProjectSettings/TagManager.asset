@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Root
+  - Dead
   layers:
   - Default
   - TransparentFX
