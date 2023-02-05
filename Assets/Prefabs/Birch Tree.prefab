@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 341647923150511563}
   m_Layer: 0
   m_Name: Birch Tree
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,6 +55,9 @@ MonoBehaviour:
   curve: 1
   splitThresholdOne: 4.09
   splitThresholdTwo: 2
+  splitThresholdThree: 5
+  splitThresholdFour: 6
+  curveAmount: 0.0001
 --- !u!96 &341647923150511563
 TrailRenderer:
   serializedVersion: 2
@@ -114,13 +117,13 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.978836
+        time: 0.9847564
         value: 1
-        inSlope: 1.4366555
-        outSlope: 1.4366555
+        inSlope: -0.24496275
+        outSlope: -0.24496275
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.2594595
+        inWeight: 0.52591443
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2

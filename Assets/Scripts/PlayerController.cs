@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     {
         if (alive)
         {
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
                 move(fastSpeed, fastRotationSpeed);
             }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1009652298534835707}
   - component: {fileID: 1549684204526958508}
   m_Layer: 0
-  m_Name: Acacia Branch
+  m_Name: Cherry Branch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.8113208, g: 0.76078486, b: 0.28702387, a: 1}
+  m_Color: {r: 0.8773585, g: 0.5255874, b: 0.7834393, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -161,21 +161,21 @@ TrailRenderer:
       key0: {r: 0.19241722, g: 0.8679245, b: 0.45349282, a: 1}
       key1: {r: 0.7735849, g: 0.49249467, b: 0.0985226, a: 1}
       key2: {r: 0.33962262, g: 0.24638101, b: 0.11374155, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0.33962262, g: 0.24638101, b: 0.11374155, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 19468
-      ctime2: 52043
-      ctime3: 0
+      ctime1: 8096
+      ctime2: 31226
+      ctime3: 65150
       ctime4: 0
       ctime5: 0
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
+      atime1: 65150
       atime2: 0
       atime3: 0
       atime4: 0
@@ -183,7 +183,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_NumColorKeys: 3
+      m_NumColorKeys: 4
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
@@ -208,14 +208,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   height: 0
-  multiplier: 1.33
+  multiplier: 1.51
   branchPrefab: {fileID: 1009652298534835709}
   minSplitAngle: 30
   maxSplitAngle: 69
   maxHeight: 10
-  curve: 1
+  curve: 0
   splitThresholdOne: 1
   splitThresholdTwo: 2
   splitThresholdThree: 5
   splitThresholdFour: 6
   curveAmount: 0.0001
+  leafSizeMult: 0.25

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6566063452760857628}
   m_Layer: 0
   m_Name: Acacia Tree
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,11 +47,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   height: 0
-  multiplier: 1
-  branchPrefab: {fileID: 1009652298534835709, guid: dc952677b842a40e1884e040a44fd91b, type: 3}
+  multiplier: 1.4
+  branchPrefab: {fileID: 1009652298534835709, guid: 1482c5eed4ec946e28db46e22b5f77e3, type: 3}
   minSplitAngle: 30
   maxSplitAngle: 40
-  maxHeight: 10
+  maxHeight: 18
+  curve: 1
+  splitThresholdOne: 1
+  splitThresholdTwo: 2
+  splitThresholdThree: 5
+  splitThresholdFour: 6
+  curveAmount: 0.0001
 --- !u!96 &6566063452760857628
 TrailRenderer:
   serializedVersion: 2
@@ -125,16 +131,16 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.04466983, g: 0.4716981, b: 0.0022249965, a: 1}
-      key1: {r: 0.4528302, g: 0.29149005, b: 0.16447133, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key1: {r: 0.6981132, g: 0.4331777, b: 0.1284265, a: 1}
+      key2: {r: 0.4528302, g: 0.29149005, b: 0.16447133, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 27756
-      ctime2: 0
+      ctime1: 30840
+      ctime2: 56090
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -149,7 +155,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_NumColorKeys: 2
+      m_NumColorKeys: 3
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
