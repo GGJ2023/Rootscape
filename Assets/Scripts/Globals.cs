@@ -16,7 +16,7 @@ public class Globals : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(distanceTravelled.ToString());
-        Debug.Log(numberOfSplits.ToString());
+        Debug.Log(distanceTravelled.ToString());
+        //Debug.Log(numberOfSplits.ToString());
     }
 }
