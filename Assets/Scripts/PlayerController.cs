@@ -37,6 +37,10 @@ public class PlayerController : MonoBehaviour
 
     private float lifetime = 0.0f;
 
+    private TrailRenderer trailRenderer = null;
+    private MaterialPropertyBlock mpb;
+    private static readonly int hydrationProp = Shader.PropertyToID("_HydrationAmount");
+
     private void Awake()
     {
 #if UNITY_EDITOR
@@ -46,6 +50,9 @@ public class PlayerController : MonoBehaviour
         }
 #endif
         lifetime = maxLifetime;
+
+        trailRenderer = GetComponent<TrailRenderer>();
+        mpb = new MaterialPropertyBlock();
     }
 
     void Update()
@@ -54,6 +61,7 @@ public class PlayerController : MonoBehaviour
         {
             handleInput();
             decrementLifetime();
+            updateMaterial();
         }
     }
 
@@ -91,6 +99,13 @@ public class PlayerController : MonoBehaviour
         {
             KillRoot();
         }
+    }
+
+    private void updateMaterial()
+    {
+        trailRenderer.GetPropertyBlock(mpb);
+        mpb.SetFloat(hydrationProp, lifetime / maxLifetime);
+        trailRenderer.SetPropertyBlock(mpb);
     }
     
     public void SetSpeed(float newSpeed)
