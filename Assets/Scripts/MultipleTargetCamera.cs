@@ -28,6 +28,8 @@ public class MultipleTargetCamera : MonoBehaviour
         objectsWithTag = GameObject.FindGameObjectsWithTag("Root");
         if (objectsWithTag.Length <= 0)
         {
+            maxZoom = 10000f;
+            ZoomLimiter = 10000f;
             objectsWithTag = GameObject.FindGameObjectsWithTag("Dead");
             Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, new Color(0.83f, 0.66f, 0.40f), Time.deltaTime * 0.5f);
         }
@@ -71,7 +73,7 @@ public class MultipleTargetCamera : MonoBehaviour
 
     void Zoom()
     {
-        Debug.Log(GetGreatestDistance());
+        //Debug.Log(GetGreatestDistance());
         float newZoom = Mathf.Lerp(minZoom, maxZoom, GetGreatestDistance() / ZoomLimiter);
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, newZoom, Time.deltaTime);
     }

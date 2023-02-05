@@ -94,6 +94,9 @@ public class PlayerController : MonoBehaviour
 
         // Change the position based on the direction (normalized) and speed
         Vector2 move = direction * currentSpeed * Time.deltaTime;
+
+        Globals.distanceTravelled += move.magnitude;
+
         transform.position = transform.position + (Vector3) move;
 
         // Debug for split
@@ -148,6 +151,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        Globals.numberOfSplits += 1;
+
         float rand = Random.Range(-1, 1);
         float rotationAmount;
 
@@ -161,7 +166,7 @@ public class PlayerController : MonoBehaviour
             rotationAmount =
                 Random.Range(minSplitAngleRight, maxSplitAngleRight);
         }
-        Debug.Log (rand);
+        //Debug.Log (rand);
         Quaternion rotation =
             Quaternion.Euler(Vector3.forward * rotationAmount);
 

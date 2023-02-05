@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject prefabToSpawn; // drag your prefab to this field in the inspector
-    public float spawnInterval = 1f; // time between spawns in seconds
-    private float spawnTimer = 0f; // timer to track when to spawn
-    private Camera mainCamera; // reference to the main camera
-    private Vector3 cameraBottomLeft; // bottom-left corner of the camera's view
-    private Vector3 cameraTopRight; // top-right corner of the camera's view
+    public GameObject prefabToSpawn; 
+    public float spawnInterval = 1f;
+    private float spawnTimer = 0f; 
+    private Camera mainCamera; 
+    private Vector3 cameraBottomLeft; 
+    private Vector3 cameraTopRight; 
 
     private void Start()
     {
