@@ -29,12 +29,17 @@ public class MultipleTargetCamera : MonoBehaviour
     {
         finale = true;
         //Wait for 4 seconds
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(20);
         treeZoom = true;
     }
 
         private void LateUpdate()
     {
+        if (Input.GetKey(KeyCode.T) || Input.GetKey(KeyCode.C))
+        {
+            treeZoom = true;
+        }
+
         objectsWithTag = GameObject.FindGameObjectsWithTag("Root");
         if (objectsWithTag.Length <= 0)
         {
