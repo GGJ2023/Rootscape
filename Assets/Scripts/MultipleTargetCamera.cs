@@ -35,7 +35,7 @@ public class MultipleTargetCamera : MonoBehaviour
 
         private void LateUpdate()
     {
-        if (Input.GetKey(KeyCode.T) || Input.GetKey(KeyCode.C))
+        if (Input.GetKey(KeyCode.Space))
         {
             treeZoom = true;
         }
