@@ -6,30 +6,22 @@ using UnityEngine.UI;
 
 public class ChangeToGame : MonoBehaviour
 {
-    public Button b;
-
     public SpriteRenderer title;
 
     Color tmp;
 
-    bool clicked = false;
+    private bool clicked = false;
 
     // Start is called before the first frame update
     void Start()
     {
         tmp = title.GetComponent<SpriteRenderer>().color;
-
-        b
-            .onClick
-            .AddListener(() =>
-            {
-                clicked = true;
-            });
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("space")) clicked = true;
         if (
             Camera.main.gameObject.transform.position.y >= -5.5f &&
             clicked == true
