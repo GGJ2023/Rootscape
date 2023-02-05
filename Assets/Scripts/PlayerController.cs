@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField, Range(0.0f, 20.0f)]
-    private float speed = 0.0f;
+    [SerializeField, Range(0.0f, 40.0f)]
+    private float defaultSpeed = 0.0f;
 
     [SerializeField, Range(40.0f, 180.0f)]
-    private float rotationSpeed = 40.0f;
+    private float defaultRotationSpeed = 40.0f;
 
-    [SerializeField, Range(1.0f, 3.0f)]
-    private float accel = 1.0f;
+    [SerializeField, Range(0.0f, 60.0f)]
+    private float fastSpeed = 0.0f;
+
+    [SerializeField, Range(40.0f, 180.0f)]
+    private float fastRotationSpeed = 40.0f;
 
     [SerializeField]
     private GameObject rootPrefab = null;
@@ -65,28 +68,32 @@ public class PlayerController : MonoBehaviour
     {
         if (alive)
         {
-            handleInput();
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                move(fastSpeed, fastRotationSpeed);
+            }
+            else
+            {
+                move(defaultSpeed, defaultRotationSpeed);
+            }
             decrementLifetime();
             updateMaterial();
         }
     }
 
-    private void handleInput()
+    private void move(float currentSpeed, float currentRotationSpeed)
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         // Calculate how much to rotate this frame
-        float rotationAmount = -horizontal * rotationSpeed * Time.deltaTime;
+        float rotationAmount = -horizontal * currentRotationSpeed * Time.deltaTime;
         Quaternion rotation =
             Quaternion.Euler(Vector3.forward * -rotationAmount);
         RotateDirection (rotation);
 
-        // Calculate how much to accelerate this frame
-        ModifySpeed(vertical * accel * Time.deltaTime);
-
         // Change the position based on the direction (normalized) and speed
-        Vector2 move = direction * speed * Time.deltaTime;
+        Vector2 move = direction * currentSpeed * Time.deltaTime;
         transform.position = transform.position + (Vector3) move;
 
         // Debug for split
@@ -111,16 +118,6 @@ public class PlayerController : MonoBehaviour
         trailRenderer.GetPropertyBlock (mpb);
         mpb.SetFloat(hydrationProp, lifetime / maxLifetime);
         trailRenderer.SetPropertyBlock (mpb);
-    }
-
-    public void SetSpeed(float newSpeed)
-    {
-        speed = newSpeed;
-    }
-
-    public void ModifySpeed(float delta)
-    {
-        speed += delta;
     }
 
     public void SetDirection(Vector2 newDir)
@@ -176,12 +173,6 @@ public class PlayerController : MonoBehaviour
         // Set the direction properly for the new root
         PlayerController newPC = newRoot.GetComponent<PlayerController>();
         newPC.SetDirection(rotation * direction);
-
-        // Set the speed to be equal
-        newPC.SetSpeed (speed);
-
-        // Don't allow the new root to split
-        //newPC.SetCanSplit(false);
     }
 
     public void KillRoot()
@@ -190,14 +181,21 @@ public class PlayerController : MonoBehaviour
         alive = false;
         canSplit = false;
 
-        trailRenderer.GetPropertyBlock (mpb);
-        mpb.SetFloat(hydrationProp, 0);
-        trailRenderer.SetPropertyBlock (mpb);
+        StartCoroutine(Death());
     }
 
     private IEnumerator Death()
     {
-        if (lifetime >= 0) lifetime -= Time.deltaTime * 3;
-        yield return null;
+        while (lifetime >= 0)
+        {
+            lifetime -= Time.deltaTime * 3;
+            trailRenderer.GetPropertyBlock(mpb);
+            mpb.SetFloat(hydrationProp, lifetime / maxLifetime);
+            trailRenderer.SetPropertyBlock(mpb);
+            yield return null;
+        }
+        trailRenderer.GetPropertyBlock(mpb);
+        mpb.SetFloat(hydrationProp, 0.0f);
+        trailRenderer.SetPropertyBlock(mpb);
     }
 }
