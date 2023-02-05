@@ -152,7 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4188a4c18943d4e95f94610cf7bf2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 8525662320749040166, guid: e185ff863f580304ea08d4b6e6e2e480, type: 3}
+  prefabsToSpawn:
+  - {fileID: 8525662320749040166, guid: e185ff863f580304ea08d4b6e6e2e480, type: 3}
+  - {fileID: 8525662320749040166, guid: 34ef8454a9c92074583fe60c736a2b44, type: 3}
+  - {fileID: 8525662320749040166, guid: 05f2a0927488ed24c9c51d87e55c10ca, type: 3}
   spawnInterval: 2
 --- !u!4 &327042329
 Transform:
@@ -244,7 +247,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -945,7 +948,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4188a4c18943d4e95f94610cf7bf2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 4329568666804284228, guid: 54e812ec7d702194786c3ae713f4c66f, type: 3}
+  prefabsToSpawn:
+  - {fileID: 4329568666804284228, guid: 54e812ec7d702194786c3ae713f4c66f, type: 3}
   spawnInterval: 0.7
 --- !u!4 &1676108750
 Transform:
@@ -1035,7 +1039,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4188a4c18943d4e95f94610cf7bf2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 1780920066754947531, guid: 3cc230b6c7b901d479fb0e38ebac23f8, type: 3}
+  prefabsToSpawn:
+  - {fileID: 1780920066754947531, guid: 3cc230b6c7b901d479fb0e38ebac23f8, type: 3}
   spawnInterval: 1
 --- !u!4 &2013435719
 Transform:
