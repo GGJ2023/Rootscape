@@ -50,7 +50,10 @@ public class MultipleTargetCamera : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.Space) && canRestart)
+        {
             SceneManager.LoadScene(1);
+            PlayerController.ResetZ();
+        }
 
         objectsWithTag = GameObject.FindGameObjectsWithTag("Root");
         if (objectsWithTag.Length <= 0)

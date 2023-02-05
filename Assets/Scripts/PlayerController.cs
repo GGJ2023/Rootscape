@@ -83,6 +83,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public static void ResetZ()
+    {
+        z = 0.0f;
+    }
+
     private void move(float currentSpeed, float currentRotationSpeed)
     {
         float horizontal = Input.GetAxis("Horizontal");
