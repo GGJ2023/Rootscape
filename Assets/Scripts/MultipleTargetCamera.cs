@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MultipleTargetCamera : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class MultipleTargetCamera : MonoBehaviour
     private Vector3 velocity;
     private bool treeZoom = false;
     private bool finale = false;
+    private bool canRestart = false;
     public float smoothTime = 0.5f;
     private GameObject[] objectsWithTag;
     private Camera cam;
@@ -33,12 +35,22 @@ public class MultipleTargetCamera : MonoBehaviour
         treeZoom = true;
     }
 
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(3);
+        canRestart = true;
+    }
+
         private void LateUpdate()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && finale)
         {
             treeZoom = true;
+            StartCoroutine(delay());
         }
+
+        if (Input.GetKey(KeyCode.Space) && canRestart)
+            SceneManager.LoadScene(1);
 
         objectsWithTag = GameObject.FindGameObjectsWithTag("Root");
         if (objectsWithTag.Length <= 0)
