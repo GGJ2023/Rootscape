@@ -1577,10 +1577,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bug Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 1906652801004716784, guid: 1bd9730f279acb148bdcf5eff4d9eaa8, type: 3}
-      propertyPath: m_TagString
-      value: Spawner
-      objectReference: {fileID: 0}
     - target: {fileID: 1906652801004716798, guid: 1bd9730f279acb148bdcf5eff4d9eaa8, type: 3}
       propertyPath: m_RootOrder
       value: 3
