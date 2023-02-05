@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1780920066754947527}
   - component: {fileID: 1780920066754947528}
   m_Layer: 0
-  m_Name: Rock
+  m_Name: Small Rock 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1780920066754947531}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.08, y: -3.73, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cf2184867dda94a879eed482690f647d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 49aaf2553fa604efb9b01d16a6a67cf9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -111,16 +111,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06765619, y: -0.086449504}
+  m_Offset: {x: 0.0012174845, y: -0.04302007}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.21, y: 1.57}
+    oldSize: {x: 3.98, y: 2.22}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5562835, y: 1.0676558}
+  m_Size: {x: 3.1688883, y: 1.6525058}
   m_EdgeRadius: 0
