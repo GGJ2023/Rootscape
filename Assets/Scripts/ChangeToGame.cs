@@ -35,8 +35,8 @@ public class ChangeToGame : MonoBehaviour
             clicked == true
         )
         {
-            Camera.main.gameObject.transform.Translate(0f, -0.01f, 0f);
-            tmp.a = title.GetComponent<SpriteRenderer>().color.a - 0.005f;
+            Camera.main.gameObject.transform.Translate(0f, -0.005f, 0f);
+            tmp.a = title.GetComponent<SpriteRenderer>().color.a - 0.003f;
             title.GetComponent<SpriteRenderer>().color = tmp;
         }
         else if (Camera.main.gameObject.transform.position.y <= -5.5f)
