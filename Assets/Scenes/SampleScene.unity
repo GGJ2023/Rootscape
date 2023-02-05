@@ -1180,53 +1180,6 @@ Transform:
   m_Father: {fileID: 901834112}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2013435717
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2013435719}
-  - component: {fileID: 2013435718}
-  m_Layer: 0
-  m_Name: Rock Spawner
-  m_TagString: Spawner
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2013435718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013435717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad4188a4c18943d4e95f94610cf7bf2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabsToSpawn:
-  - {fileID: 1780920066754947531, guid: 3cc230b6c7b901d479fb0e38ebac23f8, type: 3}
-  spawnInterval: 1
---- !u!4 &2013435719
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013435717}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8130951, y: -115.23065, z: -10.333873}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2112272175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,3 +1405,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bd9730f279acb148bdcf5eff4d9eaa8, type: 3}
+--- !u!1001 &4005544399993901428
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4005544399322973745, guid: 67a4d849b18e82e408339855685ce081, type: 3}
+      propertyPath: m_Name
+      value: Rock Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005544399322973747, guid: 67a4d849b18e82e408339855685ce081, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005544399322973747, guid: 67a4d849b18e82e408339855685ce081, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.8130951
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005544399322973747, guid: 67a4d849b18e82e408339855685ce081, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -115.23065
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005544399322973747, guid: 67a4d849b18e82e408339855685ce081, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.333873
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005544399322973747, guid: 67a4d849b18e82e408339855685ce081, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005544399322973747, guid: 67a4d849b18e82e408339855685ce081, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005544399322973747, guid: 67a4d849b18e82e408339855685ce081, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005544399322973747, guid: 67a4d849b18e82e408339855685ce081, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005544399322973747, guid: 67a4d849b18e82e408339855685ce081, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005544399322973747, guid: 67a4d849b18e82e408339855685ce081, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005544399322973747, guid: 67a4d849b18e82e408339855685ce081, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67a4d849b18e82e408339855685ce081, type: 3}
