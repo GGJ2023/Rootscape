@@ -51,7 +51,13 @@ MonoBehaviour:
   branchPrefab: {fileID: 1009652298534835709, guid: dc952677b842a40e1884e040a44fd91b, type: 3}
   minSplitAngle: 30
   maxSplitAngle: 40
-  maxHeight: 10
+  maxHeight: 20
+  curve: 0
+  splitThresholdOne: 1
+  splitThresholdTwo: 2
+  splitThresholdThree: 5
+  splitThresholdFour: 6
+  curveAmount: 0.0001
 --- !u!96 &6566063452760857628
 TrailRenderer:
   serializedVersion: 2

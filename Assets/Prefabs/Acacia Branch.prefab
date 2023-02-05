@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.08187969, g: 0.754717, b: 0.26364213, a: 1}
+  m_Color: {r: 0.8113208, g: 0.76078486, b: 0.28702387, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -167,7 +167,7 @@ TrailRenderer:
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 13878
+      ctime1: 19468
       ctime2: 52043
       ctime3: 0
       ctime4: 0
@@ -208,15 +208,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   height: 0
-  multiplier: 1
+  multiplier: 1.33
   branchPrefab: {fileID: 1009652298534835709}
   minSplitAngle: 30
-  maxSplitAngle: 50
+  maxSplitAngle: 69
   maxHeight: 10
-  curve: 0
+  curve: 1
   splitThresholdOne: 1
   splitThresholdTwo: 2
   splitThresholdThree: 5
   splitThresholdFour: 6
   curveAmount: 0.0001
-  branch: 1
