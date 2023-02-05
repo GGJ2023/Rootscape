@@ -27,7 +27,7 @@ public class Bug : MonoBehaviour
 
     private void Start()
     {
-        SetNewDestination();
+        SetNewRandDestination();
     }
 
     // Update is called once per frame
@@ -46,12 +46,12 @@ public class Bug : MonoBehaviour
 
         if (Vector2.Distance(newPos, dest) < 0.01f)
         {
-            SetNewDestination();
+            SetNewRandDestination();
         }
 
     }
 
-    private void SetNewDestination()
+    private void SetNewRandDestination()
     {
         Vector2 offset = Random.insideUnitCircle * moveRange;
         dest = (Vector2)transform.position + offset;
