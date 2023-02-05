@@ -48,9 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b605d94b95f8445a179df9a68730f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  rotationSpeed: 93
-  accel: 5
+  slowSpeed: 5
+  slowRotationSpeed: 270
+  defaultSpeed: 7
+  defaultRotationSpeed: 160
+  fastSpeed: 15
+  fastRotationSpeed: 70
   rootPrefab: {fileID: 1009652298534835709}
   minSplitAngleLeft: 30
   maxSplitAngleLeft: 90
