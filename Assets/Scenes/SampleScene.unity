@@ -1577,10 +1577,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock Spawner
       objectReference: {fileID: 0}
-    - target: {fileID: 4005544399322973746, guid: 67a4d849b18e82e408339855685ce081, type: 3}
-      propertyPath: spawnInterval
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 4005544399322973747, guid: 67a4d849b18e82e408339855685ce081, type: 3}
       propertyPath: m_RootOrder
       value: 5
