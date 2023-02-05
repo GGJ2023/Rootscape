@@ -35,16 +35,24 @@ public class tree : MonoBehaviour
 
     [SerializeField, Range(10.0f, 90.0f)] private float minSplitAngle = 30.0f;
     [SerializeField, Range(10.0f, 90.0f)] private float maxSplitAngle = 40.0f;
+    [SerializeField, Range(0.0f, 100.0f)] private float maxHeight = 10.0f;
+    [SerializeField] private bool curve = false;
+    [SerializeField, Range(0.0f, 10.0f)] private float splitThresholdOne = 1.0f;
+    [SerializeField, Range(0.0f, 10.0f)] private float splitThresholdTwo = 2.0f;
+    [SerializeField, Range(0.0f, 10.0f)] private float splitThresholdThree = 5.0f;
+    [SerializeField, Range(0.0f, 10.0f)] private float splitThresholdFour = 6.0f;
+    [SerializeField, Range(0.0f, 0.0001f)] private float curveAmount = 0.0001f;
 
     private Vector2 direction = Vector2.up;
     private bool canSplit = true;
 
     private Vector3 initial;
-    private float splitThresholdOne = 1.0f;
-    private float splitThresholdTwo = 2.0f;
     private bool splitUpcomingOne = true;
     private bool splitUpcomingTwo = true;
+    private bool splitUpcomingThree = true;
+    private bool splitUpcomingFour = true;
     private int deep = 0;
+    private bool switched = false;
 
     private void Awake()
     {
@@ -59,9 +67,23 @@ public class tree : MonoBehaviour
 
     void Update()
     {
+        Vector2 curveDirection = new Vector2(curveAmount, 0.0f);
+        if(height > 2 && !switched)
+            curveDirection = -curveDirection;
+
+        if(curve)
+        {
+            direction += curveDirection;
+        }
+
+        if(height > maxHeight)
+            return;
+
         height += 0.001f;
         if(multiplier > 0.05f)
             multiplier = clamp(multiplier - 0.00005f, 0.0f, 2.0f);
+
+        //Debug.Log(direction);
 
         Vector3 move = height * direction * multiplier;
 
@@ -69,7 +91,7 @@ public class tree : MonoBehaviour
             return;
 
         transform.position = initial + move;
-        transform.localScale = new Vector3(height * 0.02f, height * 0.02f, transform.localScale.z);
+        transform.localScale = new Vector3(height * 0.2f, height * 0.2f, transform.localScale.z);
 
         if(splitUpcomingOne && height > splitThresholdOne)
         {
@@ -80,6 +102,18 @@ public class tree : MonoBehaviour
         if(splitUpcomingTwo && height > splitThresholdTwo)
         {
             splitUpcomingTwo = false;
+            Split(true);
+        }
+
+        if(splitUpcomingThree && height > splitThresholdThree)
+        {
+            splitUpcomingThree = false;
+            Split(true);
+        }
+
+        if(splitUpcomingFour && height > splitThresholdFour)
+        {
+            splitUpcomingFour = false;
             Split(true);
         }
     }

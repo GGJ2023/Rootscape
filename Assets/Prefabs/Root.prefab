@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   rotationSpeed: 93
-  accel: 1.35
+  accel: 5
   rootPrefab: {fileID: 1009652298534835709}
   minSplitAngleLeft: 30
   maxSplitAngleLeft: 90

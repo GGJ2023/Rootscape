@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1009652298534835707}
   - component: {fileID: 1549684204526958508}
   m_Layer: 0
-  m_Name: Branch
+  m_Name: Oak Branch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
