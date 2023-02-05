@@ -1,5 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerController : MonoBehaviour
 {
     [SerializeField, Range(0.0f, 20.0f)]
@@ -184,5 +185,16 @@ public class PlayerController : MonoBehaviour
         gameObject.tag = "Dead";
         alive = false;
         canSplit = false;
+
+        trailRenderer.GetPropertyBlock(mpb);
+        mpb.SetFloat(hydrationProp, 0);
+        trailRenderer.SetPropertyBlock(mpb);
+    }
+
+    private IEnumerator Death()
+    {
+        if(lifetime >=0)
+            lifetime -= Time.deltaTime * 3;
+        yield return null;
     }
 }
