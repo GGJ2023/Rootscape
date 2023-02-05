@@ -59,6 +59,7 @@ public class tree : MonoBehaviour
     private bool splitUpcomingFour = true;
     private int deep = 0;
     private bool switched = false;
+    public bool afterlife = false;
 
     private float last = 0;
 
@@ -89,7 +90,7 @@ public class tree : MonoBehaviour
             return;
         }
 
-        if(!(last < Globals.distanceTravelled))
+        if(!(last < Globals.distanceTravelled) && !afterlife)
             return;
         last = Globals.distanceTravelled;
 
@@ -98,7 +99,7 @@ public class tree : MonoBehaviour
         if(multiplier > 0.05f)
             multiplier = clamp(multiplier - 0.00005f, 0.0f, 2.0f);
 
-        if(multiplier < 0.05f)
+        if(multiplier < 0.05f && !afterlife)
             return;
 
         Vector3 move = height * direction * multiplier;
