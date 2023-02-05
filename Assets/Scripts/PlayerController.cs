@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class PlayerController : MonoBehaviour
 {
     [SerializeField, Range(0.0f, 20.0f)]
@@ -33,14 +34,17 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction = Vector2.down;
 
     private bool canSplit = true;
-    
+
     private bool alive = true;
 
     private float lifetime = 0.0f;
 
     private TrailRenderer trailRenderer = null;
+
     private MaterialPropertyBlock mpb;
-    private static readonly int hydrationProp = Shader.PropertyToID("_HydrationAmount");
+
+    private static readonly int
+        hydrationProp = Shader.PropertyToID("_HydrationAmount");
 
     private void Awake()
     {
@@ -50,6 +54,7 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("Root prefab not set");
         }
 #endif
+
         lifetime = maxLifetime;
 
         trailRenderer = GetComponent<TrailRenderer>();
@@ -72,18 +77,17 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         // Calculate how much to rotate this frame
-        float rotationAmount = horizontal * rotationSpeed * Time.deltaTime;
+        float rotationAmount = -horizontal * rotationSpeed * Time.deltaTime;
         Quaternion rotation =
             Quaternion.Euler(Vector3.forward * -rotationAmount);
-        RotateDirection(rotation);
+        RotateDirection (rotation);
 
         // Calculate how much to accelerate this frame
         ModifySpeed(vertical * accel * Time.deltaTime);
 
         // Change the position based on the direction (normalized) and speed
         Vector2 move = direction * speed * Time.deltaTime;
-        transform.position = transform.position + (Vector3)move;
-
+        transform.position = transform.position + (Vector3) move;
 
         // Debug for split
         if (Input.GetKeyDown(KeyCode.Space))
@@ -104,11 +108,11 @@ public class PlayerController : MonoBehaviour
 
     private void updateMaterial()
     {
-        trailRenderer.GetPropertyBlock(mpb);
+        trailRenderer.GetPropertyBlock (mpb);
         mpb.SetFloat(hydrationProp, lifetime / maxLifetime);
-        trailRenderer.SetPropertyBlock(mpb);
+        trailRenderer.SetPropertyBlock (mpb);
     }
-    
+
     public void SetSpeed(float newSpeed)
     {
         speed = newSpeed;
@@ -186,15 +190,14 @@ public class PlayerController : MonoBehaviour
         alive = false;
         canSplit = false;
 
-        trailRenderer.GetPropertyBlock(mpb);
+        trailRenderer.GetPropertyBlock (mpb);
         mpb.SetFloat(hydrationProp, 0);
-        trailRenderer.SetPropertyBlock(mpb);
+        trailRenderer.SetPropertyBlock (mpb);
     }
 
     private IEnumerator Death()
     {
-        if(lifetime >=0)
-            lifetime -= Time.deltaTime * 3;
+        if (lifetime >= 0) lifetime -= Time.deltaTime * 3;
         yield return null;
     }
 }
