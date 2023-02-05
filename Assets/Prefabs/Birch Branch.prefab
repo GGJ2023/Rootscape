@@ -146,7 +146,7 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.97883224
-        value: 0.110721484
+        value: 0.12634648
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -212,11 +212,10 @@ MonoBehaviour:
   branchPrefab: {fileID: 1009652298534835709}
   minSplitAngle: 20
   maxSplitAngle: 30
-  maxHeight: 7
+  maxHeight: 5
   curve: 0
   splitThresholdOne: 1
   splitThresholdTwo: 2
   splitThresholdThree: 5
   splitThresholdFour: 6
   curveAmount: 0.0001
-  branch: 1

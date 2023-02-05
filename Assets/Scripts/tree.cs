@@ -41,12 +41,13 @@ public class tree : MonoBehaviour
     [SerializeField, Range(10.0f, 90.0f)] private float minSplitAngle = 30.0f;
     [SerializeField, Range(10.0f, 90.0f)] private float maxSplitAngle = 40.0f;
     [SerializeField, Range(0.0f, 100.0f)] private float maxHeight = 10.0f;
-    [SerializeField] private bool curve = false;
-    [SerializeField, Range(0.0f, 10.0f)] private float splitThresholdOne = 1.0f;
-    [SerializeField, Range(0.0f, 10.0f)] private float splitThresholdTwo = 2.0f;
-    [SerializeField, Range(0.0f, 10.0f)] private float splitThresholdThree = 5.0f;
-    [SerializeField, Range(0.0f, 10.0f)] private float splitThresholdFour = 6.0f;
-    [SerializeField, Range(0.0f, 0.0001f)] private float curveAmount = 0.0001f;
+    [SerializeField] public bool curve = false;
+    [SerializeField, Range(0.0f, 10.0f)] public float splitThresholdOne = 1.0f;
+    [SerializeField, Range(0.0f, 10.0f)] public float splitThresholdTwo = 2.0f;
+    [SerializeField, Range(0.0f, 10.0f)] public float splitThresholdThree = 5.0f;
+    [SerializeField, Range(0.0f, 10.0f)] public float splitThresholdFour = 6.0f;
+    [SerializeField, Range(0.0f, 0.0001f)] public float curveAmount = 0.0001f;
+    public float leafSizeMult = 0.1f;
 
     private Vector2 direction = Vector2.up;
     private bool canSplit = true;
@@ -58,6 +59,8 @@ public class tree : MonoBehaviour
     private bool splitUpcomingFour = true;
     private int deep = 0;
     private bool switched = false;
+
+    private float last = 0;
 
     private void Awake()
     {
@@ -82,20 +85,26 @@ public class tree : MonoBehaviour
         }
 
         if(height > maxHeight)
+        {
             return;
+        }
+
+        if(!(last < Globals.distanceTravelled))
+            return;
+        last = Globals.distanceTravelled;
 
         height += 0.0005f;
 
         if(multiplier > 0.05f)
             multiplier = clamp(multiplier - 0.00005f, 0.0f, 2.0f);
 
-        Vector3 move = height * direction * multiplier;
-
         if(multiplier < 0.05f)
             return;
 
+        Vector3 move = height * direction * multiplier;
+
         transform.position = initial + move;
-        transform.localScale = new Vector3(height * 0.2f, height * 0.2f, transform.localScale.z);
+        transform.localScale = new Vector3(height * leafSizeMult, height * leafSizeMult, transform.localScale.z);
 
         if(splitUpcomingOne && height > splitThresholdOne)
         {
