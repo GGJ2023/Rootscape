@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Range(40.0f, 180.0f)]
     private float rotationSpeed = 40.0f;
 
-    [SerializeField, Range(1.0f, 3.0f)]
+    [SerializeField, Range(1.0f, 5.0f)]
     private float accel = 1.0f;
 
     [SerializeField]
@@ -87,6 +87,9 @@ public class PlayerController : MonoBehaviour
 
         // Change the position based on the direction (normalized) and speed
         Vector2 move = direction * speed * Time.deltaTime;
+
+        Globals.distanceTravelled += move.magnitude;
+
         transform.position = transform.position + (Vector3) move;
 
         // Debug for split
@@ -151,6 +154,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        Globals.numberOfSplits += 1;
+
         float rand = Random.Range(-1, 1);
         float rotationAmount;
 
@@ -164,7 +169,7 @@ public class PlayerController : MonoBehaviour
             rotationAmount =
                 Random.Range(minSplitAngleRight, maxSplitAngleRight);
         }
-        Debug.Log (rand);
+        //Debug.Log (rand);
         Quaternion rotation =
             Quaternion.Euler(Vector3.forward * rotationAmount);
 
