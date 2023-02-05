@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6566063452760857628}
   m_Layer: 0
   m_Name: Oak Tree
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   branchPrefab: {fileID: 1009652298534835709, guid: dc952677b842a40e1884e040a44fd91b, type: 3}
   minSplitAngle: 30
   maxSplitAngle: 40
-  maxHeight: 20
+  maxHeight: 10
   curve: 0
   splitThresholdOne: 1
   splitThresholdTwo: 2
