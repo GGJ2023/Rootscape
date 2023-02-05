@@ -26,11 +26,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Range(-10.0f, -90.0f)]
     private float minSplitAngleRight = -90.0f;
 
+    [SerializeField]
+    private float maxLifetime = 8.0f;
+
     private Vector2 direction = Vector2.down;
 
     private bool canSplit = true;
     
     private bool alive = true;
+
+    private float lifetime = 0.0f;
 
     private void Awake()
     {
@@ -40,6 +45,7 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("Root prefab not set");
         }
 #endif
+        lifetime = maxLifetime;
     }
 
     void Update()
@@ -47,6 +53,7 @@ public class PlayerController : MonoBehaviour
         if (alive)
         {
             handleInput();
+            decrementLifetime();
         }
     }
 
@@ -75,6 +82,16 @@ public class PlayerController : MonoBehaviour
             Split();
         }
     }
+
+    private void decrementLifetime()
+    {
+        lifetime -= Time.deltaTime;
+
+        if (lifetime < 0.0f)
+        {
+            KillRoot();
+        }
+    }
     
     public void SetSpeed(float newSpeed)
     {
@@ -94,6 +111,11 @@ public class PlayerController : MonoBehaviour
     public void RotateDirection(Quaternion rot)
     {
         direction = rot * direction;
+    }
+
+    public void ResetLifetime()
+    {
+        lifetime = maxLifetime;
     }
 
     public void SetCanSplit(bool val)
