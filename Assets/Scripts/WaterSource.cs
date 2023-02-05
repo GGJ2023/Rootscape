@@ -37,7 +37,5 @@ public class WaterSource : MonoBehaviour
             transform.localScale = scale;
             yield return null;
         }
-
-        Destroy(gameObject);
     }
 }
