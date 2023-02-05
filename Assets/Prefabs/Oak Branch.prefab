@@ -212,3 +212,11 @@ MonoBehaviour:
   branchPrefab: {fileID: 1009652298534835709}
   minSplitAngle: 30
   maxSplitAngle: 50
+  maxHeight: 10
+  curve: 0
+  splitThresholdOne: 1
+  splitThresholdTwo: 2
+  splitThresholdThree: 5
+  splitThresholdFour: 6
+  curveAmount: 0.0001
+  branch: 1
