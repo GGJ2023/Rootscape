@@ -7,6 +7,8 @@ public class BackgroundSpawner : MonoBehaviour
 
     public GameObject prefabToSpawn;
     public float spawnInterval = 1f;
+    public float minScale = 0.5f;
+    public float maxScale = 2f;
     private float spawnTimer = 0f;
     private Camera mainCamera;
     private Vector3 cameraBottomLeft;
@@ -34,7 +36,7 @@ public class BackgroundSpawner : MonoBehaviour
             spawnTimer = 0f;
 
             // Randomize the size of the spawned object
-            float randomScale = Random.Range(0.5f, 2f);
+            float randomScale = Random.Range(minScale, maxScale);
             spawnedObject.transform.localScale = new Vector3(randomScale, randomScale, 1f);
 
             // Randomize the color of the spawned object
