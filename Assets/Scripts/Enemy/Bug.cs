@@ -65,6 +65,7 @@ public class Bug : MonoBehaviour
         bool isRoot = collision.gameObject.TryGetComponent<PlayerController>(out pc);
         if (isRoot)
         {
+            FindObjectOfType<SFXManager>().Play("rockSFX");
             pc.KillRoot();
         }
     }
