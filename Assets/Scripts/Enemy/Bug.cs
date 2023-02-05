@@ -15,13 +15,15 @@ public class Bug : MonoBehaviour
     private Vector2 velocity = Vector2.zero;
     private float timeToDest = 0.0f;
 
-    private void OnDrawGizmos()
+    #region Gizmo
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.black;
         Gizmos.DrawWireSphere(transform.position, moveRange);
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, dest);
-    }
+    }*/
+    #endregion
 
     private void Start()
     {
