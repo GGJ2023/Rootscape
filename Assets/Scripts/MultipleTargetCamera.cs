@@ -8,12 +8,14 @@ using UnityEngine;
 public class MultipleTargetCamera : MonoBehaviour
 {
     public List<Transform> targets;
-    public Vector3 offset = new Vector3(0, 0, -10);
+    public Vector3 offset = new Vector3(0, -10, -10);
     public float maxZoom = 40f;
     public float minZoom = 10f;
     public float ZoomLimiter = 50f;
 
     private Vector3 velocity;
+    private bool treeZoom = false;
+    private bool finale = false;
     public float smoothTime = 0.5f;
     private GameObject[] objectsWithTag;
     private Camera cam;
@@ -21,17 +23,47 @@ public class MultipleTargetCamera : MonoBehaviour
     private void Start()
     {
         cam = GetComponent<Camera>();
+        treeZoom = false;
+    }
+    IEnumerator waiter()
+    {
+        finale = true;
+        //Wait for 4 seconds
+        yield return new WaitForSeconds(4);
+        treeZoom = true;
     }
 
-    private void LateUpdate()
+        private void LateUpdate()
     {
         objectsWithTag = GameObject.FindGameObjectsWithTag("Root");
         if (objectsWithTag.Length <= 0)
         {
-            maxZoom = 10000f;
-            ZoomLimiter = 10000f;
-            objectsWithTag = GameObject.FindGameObjectsWithTag("Dead");
-            Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, new Color(0.83f, 0.66f, 0.40f), Time.deltaTime * 0.5f);
+
+            GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
+            for (int i = 0; i < spawners.Length; i++)
+            {
+                Destroy(spawners[i]);
+            }
+            if (finale == false)
+            {
+                StartCoroutine(waiter());
+            }
+            if (treeZoom == true)
+            {
+                maxZoom = 10f;
+                minZoom = 10f;
+                ZoomLimiter = 10f;
+                offset = new Vector3(0, 0, -10);
+                objectsWithTag = GameObject.FindGameObjectsWithTag("Tree");
+            }
+            else
+            {
+                maxZoom = 10000f;
+                ZoomLimiter = 10000f;
+                offset = new Vector3(0, 0, -10);
+                objectsWithTag = GameObject.FindGameObjectsWithTag("Dead");
+                Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, new Color(0.83f, 0.66f, 0.40f), Time.deltaTime * 0.5f);
+            }
         }
 
 
