@@ -786,6 +786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cluster Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5235714545610646304, guid: 19095d66bbbcbd046b06c1b2e7ca7b2e, type: 3}
+      propertyPath: spawnInterval
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5471677545130744792, guid: 19095d66bbbcbd046b06c1b2e7ca7b2e, type: 3}
       propertyPath: m_RootOrder
       value: 13
