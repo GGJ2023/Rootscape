@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
     private static readonly int
         hydrationProp = Shader.PropertyToID("_HydrationAmount");
 
+    private static float z = 0.0f;
+
     private void Awake()
     {
 #if UNITY_EDITOR
@@ -79,6 +81,11 @@ public class PlayerController : MonoBehaviour
             decrementLifetime();
             updateMaterial();
         }
+    }
+
+    public static void ResetZ()
+    {
+        z = 0.0f;
     }
 
     private void move(float currentSpeed, float currentRotationSpeed)
@@ -172,8 +179,19 @@ public class PlayerController : MonoBehaviour
 
         // Instatiate the new root
         GameObject newRoot = Instantiate(rootPrefab);
-        newRoot.transform.position = transform.position;
+
+        // Set the new root position to the parent
+        Vector3 newPos = transform.position;
+
+        // Decrement the zOffset
+        z -= 1.0f;
+
+        // To avoid z fighting, set new z to the global z and decrement z
+        newPos.z = z;
+
+        newRoot.transform.position = newPos;
         newRoot.transform.rotation = transform.rotation;
+
 
         // Set the direction properly for the new root
         PlayerController newPC = newRoot.GetComponent<PlayerController>();
