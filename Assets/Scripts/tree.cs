@@ -177,7 +177,7 @@ public class tree : MonoBehaviour
     public void Split(bool right)
     {
         // Don't split if you can't
-        if (!canSplit)
+        if (!canSplit || deep > 4)
         {
             return;
         }
@@ -222,11 +222,15 @@ public class tree : MonoBehaviour
         {
             splitUpcomingOne = false;
             splitUpcomingTwo = false;
+            splitUpcomingThree = false;
+            splitUpcomingFour = false;
         }
         else
         {
             newTree.splitUpcomingOne = true;
             newTree.splitUpcomingTwo = true;
+            newTree.splitUpcomingThree = true;
+            newTree.splitUpcomingFour = true;
         }
     }
 }
