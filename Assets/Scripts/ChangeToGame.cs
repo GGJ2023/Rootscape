@@ -21,11 +21,11 @@ public class ChangeToGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("esc"))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
-        if (Input.GetKeyDown("space")) clicked = true;
+        if (Input.GetKeyDown(KeyCode.Space)) clicked = true;
         if (
             Camera.main.gameObject.transform.position.y >= -20.5f &&
             clicked == true
