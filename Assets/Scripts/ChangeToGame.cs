@@ -31,7 +31,11 @@ public class ChangeToGame : MonoBehaviour
             clicked == true
         )
         {
-            Camera.main.gameObject.transform.Translate(0f, -0.02f, 0f);
+            Camera
+                .main
+                .gameObject
+                .transform
+                .Translate(0f, -5f * Time.deltaTime, 0f);
             tmp.a = title.GetComponent<SpriteRenderer>().color.a - 0.003f;
             title.GetComponent<SpriteRenderer>().color = tmp;
         }
