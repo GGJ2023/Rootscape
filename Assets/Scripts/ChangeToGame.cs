@@ -23,15 +23,15 @@ public class ChangeToGame : MonoBehaviour
     {
         if (Input.GetKeyDown("space")) clicked = true;
         if (
-            Camera.main.gameObject.transform.position.y >= -5.5f &&
+            Camera.main.gameObject.transform.position.y >= -20.5f &&
             clicked == true
         )
         {
-            Camera.main.gameObject.transform.Translate(0f, -0.005f, 0f);
+            Camera.main.gameObject.transform.Translate(0f, -0.02f, 0f);
             tmp.a = title.GetComponent<SpriteRenderer>().color.a - 0.003f;
             title.GetComponent<SpriteRenderer>().color = tmp;
         }
-        else if (Camera.main.gameObject.transform.position.y <= -5.5f)
+        else if (Camera.main.gameObject.transform.position.y <= -20.5f)
         {
             SceneManager.LoadScene(1);
         }
