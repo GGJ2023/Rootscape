@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
 
             // Calculate a random position within the bounds of the camera's view and below the bottom of the camera's view
             Vector3 spawnPosition = new Vector3(Random.Range(cameraBottomLeft.x, cameraTopRight.x),
-                                                cameraBottomLeft.y-2, 0f);
+                                                cameraBottomLeft.y-20, 0f);
             GameObject spawnedObject = Instantiate(pickPrefab(), spawnPosition, Quaternion.identity);
             spawnTimer = 0f;
 
