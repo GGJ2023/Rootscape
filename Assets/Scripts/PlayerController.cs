@@ -107,10 +107,10 @@ public class PlayerController : MonoBehaviour
         transform.position = transform.position + (Vector3) move;
 
         // Debug for split
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Split();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+            //Split();
+        //}
     }
 
     private void decrementLifetime()
