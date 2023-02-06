@@ -53,13 +53,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-#if UNITY_EDITOR
-        if (rootPrefab == null)
-        {
-            Debug.LogError("Root prefab not set");
-        }
-#endif
-
         lifetime = maxLifetime;
 
         trailRenderer = GetComponent<TrailRenderer>();
@@ -91,7 +84,6 @@ public class PlayerController : MonoBehaviour
     private void move(float currentSpeed, float currentRotationSpeed)
     {
         float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
 
         // Calculate how much to rotate this frame
         float rotationAmount = -horizontal * currentRotationSpeed * Time.deltaTime;
@@ -105,12 +97,6 @@ public class PlayerController : MonoBehaviour
         Globals.distanceTravelled += move.magnitude;
 
         transform.position = transform.position + (Vector3) move;
-
-        // Debug for split
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Split();
-        }
     }
 
     private void decrementLifetime()
