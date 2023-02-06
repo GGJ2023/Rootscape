@@ -1,25 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class MultipleTargetCamera : MonoBehaviour
 {
     public List<Transform> targets;
+
     public Vector3 offset = new Vector3(0, -10, -10);
+
     public float maxZoom = 40f;
+
     public float minZoom = 10f;
+
     public float ZoomLimiter = 50f;
 
     private Vector3 velocity;
+
     private bool treeZoom = false;
+
     private bool finale = false;
+
     private bool canRestart = false;
+
     public float smoothTime = 0.5f;
+
     private GameObject[] objectsWithTag;
+
     private Camera cam;
 
     private void Start()
@@ -27,9 +36,11 @@ public class MultipleTargetCamera : MonoBehaviour
         cam = GetComponent<Camera>();
         treeZoom = false;
     }
+
     IEnumerator waiter()
     {
         finale = true;
+
         //Wait for 4 seconds
         yield return new WaitForSeconds(20);
         treeZoom = true;
@@ -41,7 +52,7 @@ public class MultipleTargetCamera : MonoBehaviour
         canRestart = true;
     }
 
-        private void LateUpdate()
+    private void LateUpdate()
     {
         if (Input.GetKey(KeyCode.Space) && finale)
         {
@@ -63,8 +74,8 @@ public class MultipleTargetCamera : MonoBehaviour
         objectsWithTag = GameObject.FindGameObjectsWithTag("Root");
         if (objectsWithTag.Length <= 0)
         {
-
-            GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
+            GameObject[] spawners =
+                GameObject.FindGameObjectsWithTag("Spawner");
             for (int i = 0; i < spawners.Length; i++)
             {
                 Destroy(spawners[i]);
@@ -87,10 +98,13 @@ public class MultipleTargetCamera : MonoBehaviour
                 ZoomLimiter = 10000f;
                 offset = new Vector3(0, 0, -10);
                 objectsWithTag = GameObject.FindGameObjectsWithTag("Dead");
-                Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, new Color(0.83f, 0.66f, 0.40f), Time.deltaTime * 0.5f);
+                Camera.main.backgroundColor =
+                    Color
+                        .Lerp(Camera.main.backgroundColor,
+                        new Color(0.83f, 0.66f, 0.40f),
+                        Time.deltaTime * 0.5f);
             }
         }
-
 
         if (targets.Count != objectsWithTag.Length)
         {
@@ -101,8 +115,7 @@ public class MultipleTargetCamera : MonoBehaviour
             }
         }
 
-        if (targets.Count == 0)
-            return;
+        if (targets.Count == 0) return;
 
         Move();
         Zoom();
@@ -114,7 +127,12 @@ public class MultipleTargetCamera : MonoBehaviour
 
         Vector3 newPosition = centerPoint + offset;
 
-        transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
+        transform.position =
+            Vector3
+                .SmoothDamp(transform.position,
+                newPosition,
+                ref velocity,
+                smoothTime);
     }
 
     float GetGreatestDistance()
@@ -131,8 +149,10 @@ public class MultipleTargetCamera : MonoBehaviour
     void Zoom()
     {
         //Debug.Log(GetGreatestDistance());
-        float newZoom = Mathf.Lerp(minZoom, maxZoom, GetGreatestDistance() / ZoomLimiter);
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, newZoom, Time.deltaTime);
+        float newZoom =
+            Mathf.Lerp(minZoom, maxZoom, GetGreatestDistance() / ZoomLimiter);
+        cam.orthographicSize =
+            Mathf.Lerp(cam.orthographicSize, newZoom, Time.deltaTime);
     }
 
     Vector3 GetCenterPoint()
@@ -143,12 +163,11 @@ public class MultipleTargetCamera : MonoBehaviour
         }
 
         var bounds = new Bounds(targets[0].position, new Vector3(0, 0, -10));
-        for(int i = 0; i < targets.Count; i++)
+        for (int i = 0; i < targets.Count; i++)
         {
             bounds.Encapsulate(targets[i].position);
         }
 
         return bounds.center;
     }
-
 }
