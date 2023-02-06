@@ -55,6 +55,11 @@ public class MultipleTargetCamera : MonoBehaviour
             PlayerController.ResetZ();
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         objectsWithTag = GameObject.FindGameObjectsWithTag("Root");
         if (objectsWithTag.Length <= 0)
         {
